@@ -32,6 +32,7 @@ def speak(audio):
     engine.runAndWait()
     engine.stop()
 
+# Weather function
 def Weather():
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36'}
     url = requests.get('https://www.yahoo.com/news/weather/australia/sydney/sydney-1105779', headers=headers)
@@ -51,8 +52,6 @@ def WorldNews():
 def Alarm():
     alarmTime = f'{Hour.get()}:{minutes.get()}:{datetime.datetime.now().strftime("%S PM")}'
     current_time = datetime.datetime.now().strftime("%I:%M:%S %p")
-    print(alarmTime)
-    print(current_time)
     timeLabel.config(text=current_time)
     timeLabel.after(1000, Alarm)
     while True:
@@ -79,10 +78,6 @@ Hour.set(HourSetEntry)
 MinutesSet = tk.Label(mainWindow, text='MINUTES').grid(row=2, column=0, sticky='nw', padx=10)
 MinuteSetEntry= tk.Entry(mainWindow, width=25, textvariable=minutes).grid(row=2, column=0, sticky='n')
 minutes.set(MinuteSetEntry)
-# Set up the am pm box for the alarm
-# am = tk.Checkbutton(mainWindow, text='am', textvariable=a).grid(row=3, column=0, sticky='w')
-# pm = tk.Checkbutton(mainWindow, text='PM', textvariable=p).grid(row=3, column=0, sticky='e')
-# set up the button for the alarm set
 SetAlarm = tk.Button(mainWindow, text="Set Alarm", command=Alarm).grid(row=4, column=0)
 time()
 mainWindow.mainloop()
