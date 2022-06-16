@@ -22,7 +22,7 @@ def speak(audio):
     engine.stop()
 # Weather function
 def Weather():
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36'}
+    headers = {'User-Agent': 'user-agent'}
     url = requests.get('https://www.yahoo.com/news/weather/australia/sydney/sydney-1105779', headers=headers)
     soup = BeautifulSoup(url.content, 'html.parser')
     name = soup.find("div", {'class': "BdB Bds(d) Bdbc(#fff.12) Fz(1.2em) Py(2px) O(0) Pos(r) forecast-item Cur(p)"})
